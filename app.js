@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 app.post("/signup", async (req, res) => {
   const { email, phone_number, password } = req.body;
 
-  const oldUser = await User.findOne({ email: email });
+  const oldUser = await User.findOne({ phone_number: phone_number });
   if (oldUser) {
     return res.send({ data: "User already exists!!!" });
   }
