@@ -4,7 +4,7 @@ const roleController = require("../controller/roleController");
 const router = require("express").Router();
 
 //post
-router.post("/", userController.addUser);
+router.post("/add", userController.addUser);
 router.post("/role", roleController.addRole);
 
 //get all user

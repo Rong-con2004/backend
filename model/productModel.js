@@ -43,7 +43,7 @@ const productSchema = new mongoose.Schema({
         type: String
     },
     ingredients: {
-        type: [String]
+        type: String
     },
     special_ingredient:{
          type: String
@@ -54,11 +54,11 @@ const productSchema = new mongoose.Schema({
     ratings_count: {
         type: Number
     },
-    price: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Price"
+    prices: [{
+       price: Number,
+       size: String
     }],
-    categories: {
+    category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category"
     },
@@ -78,7 +78,6 @@ const productSchema = new mongoose.Schema({
     });
 
 const Product = mongoose.model('Product', productSchema);
-const Price = mongoose.model('Price', priceSchema);
 const Category = mongoose.model('Category', categorySchema);
 
-module.exports = { Product, Price, Category};
+module.exports = { Product, Category};

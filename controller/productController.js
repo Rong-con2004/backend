@@ -1,4 +1,4 @@
-const {Product, Category, Price} = require("../model/productModel");
+const {Product, Category} = require("../model/productModel");
 
 const productController = {
     //add prouct
@@ -9,13 +9,12 @@ const productController = {
 
             if(req.body.category){
 
-                 const cate = Category.find({category: req.body.category});
-                 await cate.updateOne({ $push: {products:  save._id}});
+                 const cate = await Category.findById(req.body.category);
+                 await cate.updateOne({$push: {products: save._id}})
             }
             res.status(200).json(save);
         } catch (error) {
             res.status(500).json({error: error.message});
-            
         }
     },
     getAllProduct: async(req,res)=>{

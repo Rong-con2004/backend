@@ -8,6 +8,10 @@ const dotenv = require("dotenv");
 const userRoute = require("./routes/user")
 const productRoute = require("./routes/product")
 const cartRoute = require("./routes/cart")
+const categoryRoute = require("./routes/category")
+const orderRoute = require("./routes/order")
+const searchRoute = require("./routes/search")
+const authenRoute = require("./routes/authentication")
 
 dotenv.config();
 //connect database
@@ -28,6 +32,10 @@ app.use(morgan("common"));
 app.use("/v1/user", userRoute);
 app.use("/v1/product", productRoute)
 app.use("/v1/cart", cartRoute)
+app.use("/v1/category", categoryRoute)
+app.use("/v1/order", orderRoute)
+app.use("/v1/search", searchRoute)
+app.use("/v1/authen", authenRoute)
 
 
 app.listen(8000, () => {
